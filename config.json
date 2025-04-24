@@ -1,0 +1,8 @@
+{
+    "server": {
+        "tmux_session": "minecraft",
+        "command_delay": 0.1,
+        "default_player": "JordanRainbowz"
+    },
+    "history_size": 1000
+}
