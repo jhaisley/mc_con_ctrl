@@ -4,7 +4,6 @@ import asyncio
 import shlex
 import platform
 from subprocess import PIPE, run, CalledProcessError
-from rich.console import Console
 import psutil
 import pandas as pd
 import sqlite3
@@ -14,7 +13,6 @@ from typing import Optional, Tuple
 class MinecraftServer:
     def __init__(self, tmux_session: str = "minecraft"):
         self.tmux_session = tmux_session
-        self.console = Console()
         self._connected = False
         self._process_id: Optional[int] = None
         self._is_windows = platform.system() == "Windows"
