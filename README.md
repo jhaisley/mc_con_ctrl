@@ -19,8 +19,12 @@ uv venv
 uv pip install -e .
 ```
 
-## Quick Start
+## Getting Started
 
+### Prerequesite Step
+0. Have minecraft bedrock server running under tmux, by default we look for a named session called minecraft, but you can change this in data.sqlite.
+
+### Quick Start
 1. Clone this repository
 2. Install dependencies
 3. Run the application:
