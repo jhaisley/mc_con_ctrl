@@ -1,7 +1,12 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "mc-con-ctrl"
+classifiers = ["Private :: Do Not Upload"]
+name = "mc-console-ctrl"
 version = "0.1.0"
-description = "Minecraft Command & Control - A tool for managing Minecraft servers"
+description = "Minecraft Console Control - A tool for managing Minecraft servers"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -11,7 +16,11 @@ dependencies = [
     "rich>=13.7.1",
     "typer>=0.9.0",
     "psutil>=7.0.0",
+    "pre-commit>=4.2.0",
 ]
+
+[project.scripts]
+mcc = "mc_console_ctrl.main:run_app"
 
 [project.optional-dependencies]
 dev = [

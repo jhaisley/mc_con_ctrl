@@ -72,11 +72,12 @@ wheels = [
 ]
 
 [[package]]
-name = "mc-con-ctrl"
+name = "mc-console-ctrl"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "pandas" },
+    { name = "pre-commit" },
     { name = "prompt-toolkit" },
     { name = "psutil" },
     { name = "rich" },
@@ -92,6 +93,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "pre-commit", specifier = ">=4.2.0" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=3.5.0" },
     { name = "prompt-toolkit", specifier = ">=3.0.43" },
     { name = "psutil", specifier = ">=7.0.0" },

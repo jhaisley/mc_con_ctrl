@@ -1,20 +1,25 @@
-"""Minecraft Command & Control - Main entry point."""
+"""Minecraft Console Control - Main entry point."""
 
 import asyncio
-from mc_con_ctrl.config import Config
-from mc_con_ctrl.console import MinecraftConsole
-from mc_con_ctrl.commands import CommandRegistry
-from mc_con_ctrl.minecraft import MinecraftServer
+from mc_console_ctrl.console import MinecraftConsole
+from mc_console_ctrl.commands import CommandRegistry
+from mc_console_ctrl.minecraft import MinecraftServer
+import logging
+from mc_console_ctrl.logger import setup_logging
+import tracemalloc
+
+tracemalloc.start()
+
+logger = logging.getLogger(__name__)
+setup_logging()
+logger.info("MCC started", extra={"version": "1.0.0"})
 
 
 async def init_application():
     """Initialize the application components."""
-    # Load configuration
-    config = Config()
-    settings = config.load()
-
-    # Initialize Minecraft server connection
-    server = MinecraftServer(tmux_session=settings["server"]["tmux_session"])
+    # Initialize Minecraft server connection with default tmux session
+    # (will be updated from database during startup)
+    server = MinecraftServer()
 
     # Run startup initialization
     if not await server.startup():
@@ -44,6 +49,13 @@ async def main():
     return 0
 
 
+def run_app():
+    """Entry point for the application when called as a script."""
+    return asyncio.run(main())
+
+
 if __name__ == "__main__":
-    exit_code = asyncio.run(main())
-    exit(exit_code)
+    exit(run_app())
+else:
+    # When imported as a module (e.g. via pip install)
+    __all__ = ["main", "run_app"]

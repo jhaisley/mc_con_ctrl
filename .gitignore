@@ -8,4 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
-.vscode/launch.json
+
+#VS Code / Development
+.vscode/
+.idea/dataSources.xml
+.idea/modules.xml
+.ruff_cache
+.idea/
+CODE_STYLE.md
