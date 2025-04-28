@@ -16,3 +16,6 @@ wheels/
 .ruff_cache
 .idea/
 CODE_STYLE.md
+.idea/dataSources.xml
+.idea/dataSources.xml
+.idea/modules.xml
